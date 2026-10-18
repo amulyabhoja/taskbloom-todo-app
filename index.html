@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5efff">
+    <meta name="description" content="A calm, colorful space to plan your day, one small step at a time.">
+    <title>TaskBloom — Small steps, big achievements</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="ambient" aria-hidden="true">
+        <span class="orb orb-one"></span>
+        <span class="orb orb-two"></span>
+        <span class="orb orb-three"></span>
+        <span class="bubble bubble-one"></span>
+        <span class="bubble bubble-two"></span>
+        <span class="bubble bubble-three"></span>
+        <span class="bubble bubble-four"></span>
+        <span class="bubble bubble-five"></span>
+    </div>
+
+    <main class="app-shell">
+        <section class="app-card" aria-labelledby="app-title">
+            <header class="topbar">
+                <div class="brand-mark" aria-hidden="true"><span>✿</span></div>
+                <p class="date-label" id="currentDate"></p>
+                <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.3A8.8 8.8 0 0 1 8.7 3.6 8.9 8.9 0 1 0 20.4 15.3Z"></path></svg>
+                </button>
+            </header>
+
+            <div class="intro">
+                <p class="eyebrow"><span class="eyebrow-sparkle" aria-hidden="true">✧</span> YOUR LITTLE SPACE TO GROW</p>
+                <h1 id="app-title">Task<span>Bloom</span><span class="title-flower" aria-hidden="true">✿</span></h1>
+                <p class="subtitle">Small steps, big achievements.</p>
+            </div>
+
+            <form class="task-form" id="taskForm">
+                <label class="visually-hidden" for="taskInput">What would you like to get done?</label>
+                <div class="input-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+                    <input id="taskInput" type="text" maxlength="180" placeholder="What would you like to get done?" autocomplete="off">
+                </div>
+                <button class="add-button" type="submit"><span>Add task</span><span class="add-arrow" aria-hidden="true">↗</span></button>
+            </form>
+            <p class="form-message" id="formMessage" aria-live="polite"></p>
+
+            <section class="progress-section" aria-label="Task progress">
+                <div class="progress-heading">
+                    <span class="progress-title">Your progress</span>
+                    <span class="progress-copy" id="progressCopy">A fresh start ✨</span>
+                </div>
+                <div class="progress-track" role="progressbar" id="progressBar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <span class="progress-fill" id="progressFill"></span>
+                </div>
+                <div class="stats-row">
+                    <span><strong id="totalCount">0</strong> total</span>
+                    <span><strong id="activeCount">0</strong> to do</span>
+                    <span><strong id="completedCount">0</strong> done</span>
+                </div>
+            </section>
+
+            <div class="list-toolbar">
+                <div class="filter-group" role="group" aria-label="Filter tasks">
+                    <span class="filter-indicator" id="filterIndicator" aria-hidden="true"></span>
+                    <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active</button>
+                    <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Done</button>
+                </div>
+                <button class="clear-button" id="clearCompleted" type="button">Clear completed</button>
+            </div>
+
+            <ul class="task-list" id="taskList" aria-label="Your tasks"></ul>
+            <div class="empty-state" id="emptyState">
+                <div class="empty-art" aria-hidden="true"><span class="empty-sun">☼</span><span class="empty-sprout">♧</span></div>
+                <p class="empty-title" id="emptyTitle">A little room to bloom</p>
+                <p class="empty-copy" id="emptyCopy">Add your first task and watch your day take shape.</p>
+            </div>
+            <footer class="app-footer"><span class="footer-heart" aria-hidden="true">♡</span> One thing at a time. You’ve got this.</footer>
+        </section>
+    </main>
+
+    <footer class="portfolio-footer" aria-label="Portfolio and contact information">
+        <p class="portfolio-credit">Designed &amp; Developed with <span aria-label="love" role="img">💜</span> by Amulya Bhoja</p>
+        <nav class="portfolio-links" aria-label="Contact and social links">
+            <a class="portfolio-link" href="mailto:amulyabhoja70@gmail.com" aria-label="Email Amulya Bhoja at amulyabhoja70@gmail.com">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4" width="15" height="12" rx="2"></rect><path d="m3.5 5.5 6.5 5 6.5-5"></path></svg>
+                <span>amulyabhoja70@gmail.com</span>
+            </a>
+            <span class="portfolio-separator" aria-hidden="true">·</span>
+            <a class="portfolio-link" href="https://github.com/amulyabhoja" target="_blank" rel="noopener noreferrer" aria-label="Visit Amulya Bhoja's GitHub profile (opens in a new tab)">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.49c-2.23.49-2.7-.95-2.7-.95-.36-.92-.89-1.16-.89-1.16-.73-.5.06-.49.06-.49.8.06 1.22.82 1.22.82.72 1.22 1.9.87 2.36.66.07-.51.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.96 0-.87.31-1.58.82-2.14-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.14 0 3.08-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.14.46.55.38A8 8 0 0 0 10 2Z"></path></svg>
+                <span>GitHub Profile</span>
+            </a>
+        </nav>
+        <p class="portfolio-copyright">© 2026 Amulya Bhoja. All rights reserved.</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
